@@ -399,21 +399,6 @@ final class MonocleWindow extends Window {
      *
      */
     @Override
-    protected void _enterModal(long ptr) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    protected void _enterModalWithWindow(long dialog, long window) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    protected void _exitModal(long ptr) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     protected void notifyClose() {
         super.notifyClose();
         close();

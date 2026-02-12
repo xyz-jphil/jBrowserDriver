@@ -161,6 +161,11 @@ public final class MonocleApplication extends Application {
     }
 
     @Override
+    protected boolean _supportsExtendedWindows() {
+        return false;
+    }
+
+    @Override
     public View createView() {
         return new MonocleView();
     }
@@ -367,7 +372,7 @@ public final class MonocleApplication extends Application {
     }
 
     @Override
-    protected int _getKeyCodeForChar(char c) {
+    protected int _getKeyCodeForChar(char c, int hint) {
         return KeyInput.getInstance().getKeyCodeForChar(c);
     }
 
