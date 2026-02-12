@@ -155,11 +155,12 @@ public final class MonocleApplication extends Application {
         return new MonocleWindow(owner, screen, styleMask);
     }
 
+    /** No-op: document display not supported in headless mode. Added in JavaFX 17+. */
     @Override
     protected void _showDocument(String uri) {
-        // no-op in headless mode
     }
 
+    /** Headless mode does not support extended window styles. Added in JavaFX 25+. */
     @Override
     protected boolean _supportsExtendedWindows() {
         return false;
@@ -209,6 +210,7 @@ public final class MonocleApplication extends Application {
         return new MonoclePixels(width, height, data, scalex, scaley);
     }
 
+    /** Scaled ByteBuffer pixel factory. Added in JavaFX 17+. Scale is ignored in headless mode. */
     @Override
     public Pixels createPixels(int width, int height, ByteBuffer data,
                                float scalex, float scaley)
@@ -371,6 +373,10 @@ public final class MonocleApplication extends Application {
         _leaveNestedEventLoop(null);
     }
 
+    /**
+     * Maps a character to its key code. The hint parameter was added in JavaFX 25+
+     * and is ignored here as KeyInput handles the mapping directly.
+     */
     @Override
     protected int _getKeyCodeForChar(char c, int hint) {
         return KeyInput.getInstance().getKeyCodeForChar(c);

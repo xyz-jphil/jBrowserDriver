@@ -5,6 +5,27 @@ Licensed under the Apache License v2.0 ([details](https://raw.githubusercontent.
 
 - - -
 
+## Branch: java25
+
+This branch updates jBrowserDriver to work with **JDK 25** and **JavaFX 25.0.2**.
+
+### Changes from the original (master) branch
+- **Java source/target level**: upgraded from Java 8 to Java 11
+- **JavaFX**: upgraded from bundled JDK 8 JavaFX to OpenJFX 25.0.2 (via Maven)
+- **Monocle headless platform**: adapted for JavaFX 17/25 internal API changes
+- **HeadlessPlatform**: fixed `createInputDeviceRegistry()` returning null (caused NPE on startup)
+- **Selenium**: uses Selenium 4.0.0-alpha-2; fixed `LogEntries.filter()` removal
+- **Tested on**: JDK 25 (Oracle, Windows 11)
+
+### Key dependencies
+| Dependency | Version |
+|---|---|
+| Java (compile/run) | JDK 25 |
+| JavaFX (OpenJFX) | 25.0.2 |
+| Selenium | 4.0.0-alpha-2 |
+
+- - -
+
 ## Download
 Get a ZIP archive of a [recent release](https://github.com/MachinePublishers/jBrowserDriver/releases/latest).
 
@@ -13,16 +34,12 @@ Or install via Maven:
 <dependency>
   <groupId>com.machinepublishers</groupId>
   <artifactId>jbrowserdriver</artifactId>
-  <version>1.1.0-RC2</version>
+  <version>1.1.1-SNAPSHOT</version>
 </dependency>
 ```
-For other install options, see the [Central Repository](https://search.maven.org/artifact/com.machinepublishers/jbrowserdriver/1.1.0-RC2/jar).
 
 ## Prerequisites
-Java 8 with JavaFX:
- * Ubuntu Xenial 16.04 LTS, Debian 8 Jessie ([Backports](https://backports.debian.org/Instructions/#index2h2)), Debian 9 Stretch:<br>&nbsp;&nbsp;&nbsp;&nbsp;`sudo apt-get install openjdk-8-jre openjfx`
- * Ubuntu Trusty 14.04 LTS:<br>&nbsp;&nbsp;&nbsp;&nbsp;`sudo add-apt-repository ppa:webupd8team/java && sudo apt-get update && sudo apt-get install oracle-java8-installer libgtk2.0 libxtst6 libxslt1.1 fonts-freefont-ttf libasound2 && sudo update-alternatives --config java`
- * Mac, Windows, Linux:<br>&nbsp;&nbsp;&nbsp;&nbsp;[install Oracle Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) *(note: choose either the JRE or JDK but not the "Server JRE" since it doesn't include JavaFX)*
+JDK 25 (or compatible). JavaFX is included automatically via Maven dependencies (OpenJFX 25.0.2).
 
 ## Usage
 For specific details, refer to the [API documentation](http://machinepublishers.github.io/jBrowserDriver/).

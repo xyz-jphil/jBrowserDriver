@@ -34,6 +34,11 @@ import com.machinepublishers.glass.ui.monocle.NullCursor;
 
 public class HeadlessPlatform extends NativePlatform {
 
+    /**
+     * Returns an empty InputDeviceRegistry for headless mode (no physical input devices).
+     * Must not return null -- MonocleApplication's constructor iterates over the
+     * registry's device set, and a null registry causes a NullPointerException.
+     */
     @Override
     protected InputDeviceRegistry createInputDeviceRegistry() {
         return new InputDeviceRegistry();

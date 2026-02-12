@@ -55,6 +55,7 @@ final class MonocleWindow extends Window {
         super(owner, screen, styleMask);
     }
 
+    /** Notifies the view of the current window size. Added in JavaFX 17+. */
     @Override
     protected void _updateViewSize(long ptr) {
         View view = getView();

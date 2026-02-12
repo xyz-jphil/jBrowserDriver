@@ -74,8 +74,10 @@ final class MonocleTimer extends Timer {
         }
     }
 
+    /** No-op: pause not applicable for headless timer. Added in JavaFX 16+. */
     @Override protected void _pause(long timer) {}
 
+    /** No-op: resume not applicable for headless timer. Added in JavaFX 16+. */
     @Override protected void _resume(long timer) {}
 }
 

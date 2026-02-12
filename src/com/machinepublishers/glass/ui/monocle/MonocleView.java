@@ -181,6 +181,7 @@ final class MonocleView extends View {
         super.notifyMenu(x, y, xAbs, yAbs, isKeyboardTrigger);
     }
 
+    /** Returns native frame buffer handle. Return type changed from int to long in JavaFX 25+. */
     @Override
     protected long _getNativeFrameBuffer(long ptr) {
         return 0L;
