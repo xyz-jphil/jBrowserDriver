@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -144,7 +143,7 @@ public class Test {
        * Javascript logs
        */
       int messages = 0;
-      for (LogEntry entry : driver.manage().logs().get("javascript").filter(Level.ALL)) {
+      for (LogEntry entry : driver.manage().logs().get("javascript")) {
           ++messages;
           test(!StringUtils.isEmpty(entry.getMessage()));
       }

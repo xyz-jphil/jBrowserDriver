@@ -55,8 +55,12 @@ final class MonocleWindow extends Window {
         super(owner, screen, styleMask);
     }
 
-    MonocleWindow(long parent) {
-        super(parent);
+    @Override
+    protected void _updateViewSize(long ptr) {
+        View view = getView();
+        if (view != null) {
+            ((MonocleView) view).notifyResize(getWidth(), getHeight());
+        }
     }
 
     @Override
@@ -165,11 +169,6 @@ final class MonocleWindow extends Window {
                                  int mask) {
         id = MonocleWindowManager.getInstance().addWindow(this);
         return id;
-    }
-
-    @Override
-    protected long _createChildWindow(long parent) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -443,13 +442,6 @@ final class MonocleWindow extends Window {
 
     @Override protected void _setCursor(long ptr, Cursor cursor) {
         ((MonocleCursor) cursor).applyCursor();
-    }
-
-    @Override protected int _getEmbeddedX(long ptr) {
-        return 0;
-    }
-    @Override protected int _getEmbeddedY(long ptr) {
-        return 0;
     }
 
     @Override

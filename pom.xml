@@ -322,13 +322,13 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
-      <version>11.0.1</version>
+      <version>17.0.18</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-swing</artifactId>
-      <version>11.0.1</version>
+      <version>17.0.18</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

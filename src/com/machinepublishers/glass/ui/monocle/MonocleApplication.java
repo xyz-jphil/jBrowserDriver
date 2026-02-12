@@ -156,8 +156,8 @@ public final class MonocleApplication extends Application {
     }
 
     @Override
-    public Window createWindow(long parent) {
-        return new MonocleWindow(parent);
+    protected void _showDocument(String uri) {
+        // no-op in headless mode
     }
 
     @Override
@@ -202,6 +202,13 @@ public final class MonocleApplication extends Application {
                                float scalex, float scaley)
     {
         return new MonoclePixels(width, height, data, scalex, scaley);
+    }
+
+    @Override
+    public Pixels createPixels(int width, int height, ByteBuffer data,
+                               float scalex, float scaley)
+    {
+        return new MonoclePixels(width, height, data);
     }
 
     @Override

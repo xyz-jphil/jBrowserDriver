@@ -36,10 +36,7 @@ public class HeadlessPlatform extends NativePlatform {
 
     @Override
     protected InputDeviceRegistry createInputDeviceRegistry() {
-        // use of a LinuxInputDeviceRegistry lets us simulate
-        // Linux input devices on any system
-//        return new LinuxInputDeviceRegistry(true);
-      return null;
+        return new InputDeviceRegistry();
     }
 
     @Override

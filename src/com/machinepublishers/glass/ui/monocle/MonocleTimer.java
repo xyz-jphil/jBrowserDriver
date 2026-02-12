@@ -73,5 +73,9 @@ final class MonocleTimer extends Timer {
             task = null;
         }
     }
+
+    @Override protected void _pause(long timer) {}
+
+    @Override protected void _resume(long timer) {}
 }
 
